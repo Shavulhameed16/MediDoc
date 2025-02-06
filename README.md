@@ -156,7 +156,7 @@ This project is all about the health
         const backButtons = document.querySelectorAll('.back-button');
         const optionButtons = document.querySelectorAll('.option');
 
-        // Show container
+        
         function showContainer(containerId) {
             document.querySelectorAll('.container').forEach(container => {
                 container.classList.remove('visible');
@@ -164,12 +164,12 @@ This project is all about the health
             document.getElementById(containerId).classList.add('visible');
         }
 
-        // On form submission
+        
         submitButton.addEventListener('click', () => {
             showContainer('optionsContainer');
         });
 
-        // Options
+        
         optionButtons.forEach(option => {
             option.addEventListener('click', (e) => {
                 const id = e.target.id + 'Page';
@@ -177,7 +177,7 @@ This project is all about the health
             });
         });
 
-        // Back buttons
+        
         backButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 const backTo = button.getAttribute('data-back-to');
