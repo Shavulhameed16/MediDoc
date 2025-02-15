@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatterbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #chatbox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chatbox-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            font-weight: bold;
+        }
+
+        #chatbox-messages {
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+
+        #chatbox-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        #chatbox-input input {
+            flex: 1;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #chatbox-input button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+
+        .message.user {
+            text-align: right;
+            color: blue;
+        }
+
+        .message.ai {
+            text-align: left;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbox">
+        <div id="chatbox-header">AI Chatterbox</div>
+        <div id="chatbox-messages"></div>
+        <div id="chatbox-input">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendChat">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatboxMessages = document.getElementById('chatbox-messages');
+        const chatInput = document.getElementById('chatInput');
+        const sendChat = document.getElementById('sendChat');
+
+        // Predefined AI Responses
+        const aiResponses = {
+            greeting: ["Hello! How can I help you today?", "Hi there! What’s on your mind?"],
+            howAreYou: ["I'm just a program, but I'm here to help!", "I'm great, thanks for asking! How about you?"],
+            default: ["I'm here to assist you. Could you tell me more?", "Sorry, I didn't understand that. Could you rephrase?"]
+        };
+
+        // Function to get AI response
+        function getAIResponse(userMessage) {
+            if (/hello|hi|hey/i.test(userMessage)) {
+                return aiResponses.greeting[Math.floor(Math.random() * aiResponses.greeting.length)];
+            } else if (/how are you/i.test(userMessage)) {
+                return aiResponses.howAreYou[Math.floor(Math.random() * aiResponses.howAreYou.length)];
+            } else {
+                return aiResponses.default[Math.floor(Math.random() * aiResponses.default.length)];
+            }
+        }
+
+        // Function to display messages
+        function displayMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', sender);
+            messageDiv.textContent = message;
+            chatboxMessages.appendChild(messageDiv);
+            chatboxMessages.scrollTop = chatboxMessages.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        // Event listener for sending messages
+        sendChat.addEventListener('click', () => {
+            const userMessage = chatInput.value.trim();
+            if (userMessage !== '') {
+                displayMessage(userMessage, 'user'); // Display user message
+                const aiResponse = getAIResponse(userMessage); // Get AI response
+                setTimeout(() => {
+                    displayMessage(aiResponse, 'ai'); // Display AI response after a short delay
+                }, 500);
+                chatInput.value = ''; // Clear input
+            }
+        });
+
+        // Enable sending messages with "Enter" key
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendChat.click();
+            }
+        });
+    </script>
+</body>
+</html>
