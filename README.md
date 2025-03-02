@@ -148,6 +148,9 @@ This project is all about the health
         <p>Find hospitals based on your budget.</p>
         <button class="back-button" data-back-to="optionsContainer">Back</button>
     </div>
+    <div class="container" id="Stress free">
+    <h1>Mental health chatter</h1>
+  <iframe src="ai.html" width="500" height="300"></iframe>
 
     <script>
         const submitButton = document.getElementById('submitForm');
