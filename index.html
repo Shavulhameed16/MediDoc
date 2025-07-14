@@ -7,6 +7,7 @@ This project is all about the health
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medidoc</title>
+    
     <style>
         body {
             background-color: #F08080; 
@@ -84,6 +85,7 @@ This project is all about the health
         .option.nutrition { background-color: #32CD32; } 
         .option.physician { background-color: #FFA500; } 
         .option.hospitals { background-color: #D9534F; }
+        .option.ai{ background-color: green;}
     </style>
 </head>
 <body>
@@ -105,6 +107,9 @@ This project is all about the health
             <input type="number" id="weight" required>
             <button type="button" id="submitForm">Let's Go</button>
         </form>
+        <div>
+            
+        </div>
     </div>
 
 
@@ -146,6 +151,11 @@ This project is all about the health
     <div class="container" id="hospitalsPage">
         <h1>Hospitals</h1>
         <p>Find hospitals based on your budget.</p>
+        <button class="back-button" data-back-to="optionsContainer">Back</button>
+    </div>
+    <div class="container" id="ai">
+        <h1>Helping AI</h1>
+        <p><a href="ai.html" >Helping AI</a>.</p>
         <button class="back-button" data-back-to="optionsContainer">Back</button>
     </div>
     <div class="container" id="Stress free">
