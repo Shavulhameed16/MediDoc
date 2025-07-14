@@ -9,7 +9,7 @@ This project is all about the health
     <title>Medidoc</title>
     <style>
         body {
-            background-color: #F08080; /* Pale red background */
+            background-color: #F08080; 
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -61,7 +61,7 @@ This project is all about the health
         }
 
         button#submitForm {
-            background-color: #A52A2A; /* Brown color */
+            background-color: #A52A2A;
         }
 
         button.back-button {
@@ -79,15 +79,15 @@ This project is all about the health
             cursor: pointer;
         }
 
-        .option.health-checkup { background-color: #87CEEB; } /* Blue */
-        .option.emergency { background-color: #FF6347; } /* Red */
-        .option.nutrition { background-color: #32CD32; } /* Green */
-        .option.physician { background-color: #FFA500; } /* Saffron */
-        .option.hospitals { background-color: #D9534F; } /* Red */
+        .option.health-checkup { background-color: #87CEEB; } 
+        .option.emergency { background-color: #FF6347; } 
+        .option.nutrition { background-color: #32CD32; } 
+        .option.physician { background-color: #FFA500; } 
+        .option.hospitals { background-color: #D9534F; }
     </style>
 </head>
 <body>
-    <!-- Initial Form -->
+ 
     <div class="container visible" id="formContainer">
         <h1>Medidoc</h1>
         <form id="userForm">
@@ -107,7 +107,7 @@ This project is all about the health
         </form>
     </div>
 
-    <!-- Options -->
+
     <div class="container" id="optionsContainer">
         <h1>Choose an Option</h1>
         <div class="option health-checkup" id="healthCheckup">Health Checkup</div>
@@ -117,7 +117,7 @@ This project is all about the health
         <div class="option hospitals" id="hospitals">Hospitals</div>
     </div>
 
-    <!-- Section Pages -->
+  
     <div class="container" id="healthCheckupPage">
         <h1>Health Checkup</h1>
         <p>Upload your documents for analysis:</p>
